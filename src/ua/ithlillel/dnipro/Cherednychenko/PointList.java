@@ -57,7 +57,7 @@ public class PointList {
     }
 
     private void checkExistIndex(int index) {
-        if (index >= points.length || index < 0) {
+        if (index >= size || index < 0) {
             throw new IndexOutOfBoundsException();
         }
     }
