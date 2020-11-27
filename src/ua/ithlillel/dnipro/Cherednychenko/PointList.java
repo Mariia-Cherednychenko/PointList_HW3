@@ -3,17 +3,36 @@ package ua.ithlillel.dnipro.Cherednychenko;
 import java.util.Arrays;
 
 public class PointList {
-    Point[] points = new Point[0];
+
+    final double  RATE = 1.5;
+    int limitSize =4;
+    Point[] points = new Point[limitSize];
+    int size =0;
+
+
+    public int getLimitLength() {
+        return limitSize;
+    }
+
+    public void setLimitLength(int limitLength) {
+        this.limitSize = limitLength;
+    }
+
 
     public void add(Point p) {
-        /*Point[] buffer = new Point[points.length+1];
-        for (int i=0; i<points.length; i++){
-            buffer [i]=points [i];
+        checkLengthLimit();
+        points[size] = p;
+            size++;
+
+
+    }
+
+    private void checkLengthLimit() {
+        if (size==limitSize)
+        {
+            limitSize= (int) Math.ceil(limitSize*RATE);
+            points = Arrays.copyOf(points, limitSize);
         }
-        points=buffer;
-        buffer[buffer.length-1]=p;*/
-        points = Arrays.copyOf(points, points.length + 1);
-        points[points.length - 1] = p;
     }
 
     public Point get(int i) {
@@ -42,7 +61,5 @@ public class PointList {
             throw new IndexOutOfBoundsException();
         }
     }
-    public int size(){
-        return this.points.length;
-    }
+
 }

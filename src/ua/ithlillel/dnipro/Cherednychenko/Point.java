@@ -39,12 +39,12 @@ public class Point {
 
     @Override
     public boolean equals(Object obj) {
-//if (!(obj instanceof Point)) return  false;   ------> OR  obj.GetClass
+
         if (obj == null) return false;
         if (obj.getClass() != Point.class) return false;
         Point p = (Point) obj;
         return p.x == x && p.y == y && Objects.equals(s, p.s);
-//Objects.equals(s,p.s) ----- >    (s==p.s || s!=null) && s.equals(p.s);
+
 
     }
 

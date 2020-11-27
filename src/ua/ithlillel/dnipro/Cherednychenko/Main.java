@@ -1,21 +1,20 @@
 package ua.ithlillel.dnipro.Cherednychenko;
 
+import java.util.Random;
+
 public class Main {
 
     public static void main(String[] args) {
-        // write your code here
 
         PointList pointList = new PointList();
-        pointList.add(new Point(1, 5));
-        pointList.add(new Point(2, 6));
-        pointList.add(new Point(3, 7));
+        for (int i=0; i<10; i++){
+            pointList.add(new Point((int) (Math.random()*100), (int) (Math.random()*100)));
+        }
 
-        for (int i = 0; i < pointList.size(); i++) {
+        for (int i = 0; i < pointList.size; i++) {
             System.out.println(pointList.get(i));
         }
 
-        System.out.println("abc".hashCode());
-        System.out.println("abc".hashCode());
 
     }
 }
