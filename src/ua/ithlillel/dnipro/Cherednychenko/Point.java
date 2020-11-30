@@ -28,6 +28,9 @@ public class Point {
         this.x = x;
         this.y = y;
     }
+    public Point() {
+    }
+
 
     @Override
     public String toString() {

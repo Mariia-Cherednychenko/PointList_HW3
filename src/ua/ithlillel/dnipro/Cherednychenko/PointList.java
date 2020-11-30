@@ -4,33 +4,27 @@ import java.util.Arrays;
 
 public class PointList {
 
-    final double  RATE = 1.5;
-    int limitSize =4;
+    final double RATE = 1.5;
+    int limitSize = 4;
     Point[] points = new Point[limitSize];
-    int size =0;
+    int size = 0;
 
 
     public int getLimitLength() {
         return limitSize;
     }
 
-    public void setLimitLength(int limitLength) {
-        this.limitSize = limitLength;
-    }
-
-
     public void add(Point p) {
         checkLengthLimit();
         points[size] = p;
-            size++;
+        size++;
 
 
     }
 
     private void checkLengthLimit() {
-        if (size==limitSize)
-        {
-            limitSize= (int) Math.ceil(limitSize*RATE);
+        if (size == limitSize) {
+            limitSize = (int) Math.ceil(limitSize * RATE);
             points = Arrays.copyOf(points, limitSize);
         }
     }
@@ -49,11 +43,22 @@ public class PointList {
 
         checkExistIndex(index);
 
-        Point[] buffer = new Point[points.length - 1];
-        for (int i = 0; i < buffer.length; i++) {
-            buffer[i] = points[i < index ? i : i + 1];
+        if (points.length-size >= points.length/2) {
+            Point[] buffer = new Point[(int) ((size-1)*RATE)];
+            for (int i = 0; i < buffer.length; i++) {
+                buffer[i] = points[i < index ? i : i + 1];
+            }
+            points = buffer;
+            size--;
+
+        } else {
+            for (int i = 0; i < size; i++) {
+                points[i] = points[i < index ? i : i + 1];
+            }
+            size--;
+
         }
-        points = buffer;
+
     }
 
     private void checkExistIndex(int index) {

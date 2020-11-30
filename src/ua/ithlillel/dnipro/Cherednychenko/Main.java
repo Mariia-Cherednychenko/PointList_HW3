@@ -15,6 +15,13 @@ public class Main {
             System.out.println(pointList.get(i));
         }
 
-        pointList.remove(11);
+        pointList.remove(0);
+        pointList.remove(0);
+        pointList.remove(0);
+        pointList.remove(0);
+        pointList.remove(0);
+        pointList.remove(0);
+
+
     }
 }
