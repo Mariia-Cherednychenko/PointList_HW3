@@ -49,15 +49,16 @@ public class PointList {
                 buffer[i] = points[i < index ? i : i + 1];
             }
             points = buffer;
-            size--;
+
 
         } else {
-            for (int i = 0; i < size; i++) {
-                points[i] = points[i < index ? i : i + 1];
+            for (int i = index; i < size; i++) {
+                points[i] = points[i + 1];
             }
-            size--;
+
 
         }
+        size--;
 
     }
 
